@@ -21,7 +21,7 @@ localStorage.removeItem('nombre')
 
 // Tenemos que convertirlos a cadenas de texto
 
-const user = { name: 'Victor', age: 39 }
+const user = { name: 'Julio', age: 30 }
 
 // Guardar objeto
 
