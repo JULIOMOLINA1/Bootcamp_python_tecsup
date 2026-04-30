@@ -25,8 +25,8 @@ function saveTasks(tasks) {
   localStorage.setItem('tasks', JSON.stringify(tasks))
 }
 
-taskInput.addEventListener('keydown', function(event) {
-  
+taskInput.addEventListener('keydown', function (event) {
+
   if (event.key === 'Enter') {
     // console.log(event.key)
     const newTask = {
@@ -48,9 +48,9 @@ taskInput.addEventListener('keydown', function(event) {
 
 // TODO: Añadir la lógica necesaria al botón "Limpiar tareas completadas" para que limpie las tareas completadas incluso debe actualizar el LS
 
-taskClear.addEventListener('click', function(event){
+taskClear.addEventListener('click', function (event) {
 
-  tasks=[]
+  tasks = []
 
   renderTasks(tasks)
 
@@ -59,24 +59,23 @@ taskClear.addEventListener('click', function(event){
 
 
 function renderTasks(tasks = []) {
-  // TODO: Añadir el contenido "No hay tareas registradas" si no hay tareas en el array tasks
-  
-  let lista = ''
 
-  if(tasks.length===0){
-   lista =  '<div class="text-gray-500 font-bold">No hay tareas registradas.</div>'
+  let lista = ''
+  // TODO: Añadir el contenido "No hay tareas registradas" si no hay tareas en el array tasks
+  if (tasks.length === 0) {
+    lista = '<div class="text-gray-500 font-bold">No hay tareas registradas.</div>'
   }
 
-  tasks.forEach(function(task, index) {
+  tasks.forEach(function (task, index) {
     lista = lista + `
       <li class="flex justify-center items-center gap-4 py-2">
         <input
           type="checkbox"
-          ${task.completed ? 'checked' : '' }
+          ${task.completed ? 'checked' : ''}
           onchange="checkTask(${index})"
         />
         <div
-          class="w-full ${task.completed ? 'line-through' : '' }"
+          class="w-full ${task.completed ? 'line-through' : ''}"
         >
           ${task.title}
         </div>
@@ -102,7 +101,7 @@ function removeTask(selectedIndex) {
 
   // DONE: Remover el indice seleccionado del arreglo tasks y posteriormente actualizar la lista de tareas con la función renderTasks
 
-  const modifiedTasks = tasks.filter(function(task, index) {
+  const modifiedTasks = tasks.filter(function (task, index) {
     return index != selectedIndex
   })
 
